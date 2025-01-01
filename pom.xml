@@ -14,11 +14,14 @@
         <!-- dependencies -->
         <expressly.version>5.0.0</expressly.version>
         <jakarta.el-api.version>6.0.0-M1</jakarta.el-api.version>
+        <jakarta.servlet-api.version>6.1.0-M1</jakarta.servlet-api.version>
+        <wasp.version>3.2.0</wasp.version>
         <!-- other -->
         <piranha.version>25.1.0-SNAPSHOT</piranha.version>
     </properties>
     <modules>
         <module>expression</module>
+        <module>pages</module>
     </modules>
     <repositories>
         <repository>
