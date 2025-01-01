@@ -1,0 +1,30 @@
+name: tck
+on:
+  schedule:
+  - cron: "0 0 * * 1"
+  workflow_dispatch:
+    inputs:
+      httpImplementation:
+        description: 'HTTP Implementation'
+        default: 'impl'
+        required: true
+jobs:
+  expression:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        java: [ '21' ]
+        os: [ubuntu-latest]
+    steps:
+    - name: Checkout Sources
+      uses: actions/checkout@v4
+    - name: Setup Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: ${{ matrix.java }}
+    - name: Run TCK
+      run: |
+        mvn -N install
+        cd expression
+        mvn -B verify
