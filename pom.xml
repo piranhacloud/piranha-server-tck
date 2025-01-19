@@ -22,6 +22,7 @@
     <modules>
         <module>expression</module>
         <module>pages</module>
+        <module>servlet</module>
     </modules>
     <repositories>
         <repository>

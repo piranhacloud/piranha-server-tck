@@ -12,8 +12,7 @@
     </parent>
     <artifactId>pages</artifactId>
     <packaging>pom</packaging>
-
-    <name>Piranha - External - Servlet TCK - Pages</name>
+    <name>Piranha Servlet TCK - Pages TCK</name>
     <properties>
         <ant.home>${project.build.directory}/ant</ant.home>
         <piranha.home>${project.build.directory}/piranha</piranha.home>
