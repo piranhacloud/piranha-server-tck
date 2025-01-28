@@ -10,55 +10,25 @@
         <artifactId>project</artifactId>
         <version>1-SNAPSHOT</version>
     </parent>
-    <artifactId>servlet</artifactId>
+    <groupId>tck.server.servlet</groupId>
+    <artifactId>project</artifactId>
     <packaging>pom</packaging>
-    <name>Piranha Servlet TCK - Servlet TCK</name>
+    <name>TCK Certification - Piranha Server - Servlet TCK</name>
     <properties>
-        <ant.home>${project.build.directory}/ant</ant.home>
-        <piranha.home>${project.build.directory}/piranha</piranha.home>
-        <signature.home>${project.build.directory}/signature</signature.home>
-        <tck.home>${project.build.directory}/tck</tck.home>
-        <test.home>${tck.home}/src/com/sun/ts/tests</test.home>
+        <arquillian.version>1.9.1.Final</arquillian.version>
+        <jakarta.servlet-api.version>6.1.0</jakarta.servlet-api.version>
+        <java.version>21</java.version>
+        <junit.version>5.11.4</junit.version>
+        <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
+        <maven-surefire-plugin.version>3.5.2</maven-surefire-plugin.version>
+        <piranha.directory>piranha</piranha.directory>
+        <piranha.version>25.1.0</piranha.version>        
+        <servlet-tck.version>6.1.0</servlet-tck.version>
+        <servlet-tck.downloadUrl>https://download.eclipse.org/ee4j/servlet/jakartaee11/staged/eftl/jakarta-servlet-tck-${servlet-tck.version}.zip</servlet-tck.downloadUrl>
+        <sigtest-maven-plugin.version>2.2</sigtest-maven-plugin.version>
     </properties>
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>cloud.piranha</groupId>
-                <artifactId>bom</artifactId>
-                <version>${piranha.version}</version>
-                <scope>import</scope>
-                <type>pom</type>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>validate</id>
-                        <phase>validate</phase>
-                        <configuration>
-                            <target>
-                                <!-- download, unzip and rename TCK -->
-                                <get src="https://www.eclipse.org/downloads/download.php?file=/ee4j/servlet/jakartaee11/staged/eftl/jakarta-servlet-tck-6.1.1.zip&amp;r=1"
-                                     dest="${project.build.directory}/tck.zip"
-                                     skipexisting="true"
-                                     verbose="true"/>
-                                <unzip src="${project.build.directory}/tck.zip"
-                                       dest="${project.build.directory}"/>
-                                <move file="${project.build.directory}/servlet-tck"
-                                      tofile="${project.build.directory}/tck"/>
-                            </target>
-                        </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+    <modules>
+        <module>installer</module>
+        <!-- <module>runner</module> -->
+    </modules>
 </project>
