@@ -1,3 +1,5 @@
+_This repository is no longer being maintained now that all contributions flow through Eclipse_
+
 The following TCKs should pass:
 
 - [ ] Jakarta Authentication 3.1
